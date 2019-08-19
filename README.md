@@ -15,5 +15,16 @@ Repl.it | 線上寫程式的環境
 Heroku  | 免費放網站的佛心公司
 Github  | 真正的佛心企業
 
-‵`
+#範例程式碼
+```
+@app.route("/")
+def root():
+  ds = glob.glob("articles/*")
+  result = []
+  for d in ds:
+    fs = glob.glob(d + "/*.txt")
+    t = (d.split("/")[-1], len(fs))
+    result.append(t)
+  return render_template("index.html", d = result)
+  ```
       
